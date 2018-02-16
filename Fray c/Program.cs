@@ -99,32 +99,32 @@ namespace Fray_c
 
             invoiceTemp2.InvoiceId = 2;
             invoiceTemp2.ProductId = 1;
-            invoiceTemp1.ProductQuantity = 3;
-            invoiceTemp1.ProductPrice = 10;
+            invoiceTemp2.ProductQuantity = 3;
+            invoiceTemp2.ProductPrice = 10;
             invoiceTemp2.CustomerId = 11;
             invoiceTemp2.SellerId = 1;
             invoiceTemp2.RecordDate = DateTime.Now;
 
             invoiceTemp3.InvoiceId = 3;
             invoiceTemp3.ProductId = 5;
-            invoiceTemp1.ProductQuantity = 3;
-            invoiceTemp1.ProductPrice = 16;
+            invoiceTemp3.ProductQuantity = 3;
+            invoiceTemp3.ProductPrice = 16;
             invoiceTemp3.CustomerId = 12;
             invoiceTemp3.SellerId = 1;
             invoiceTemp3.RecordDate = DateTime.Now;
 
             invoiceTemp4.InvoiceId = 4;
             invoiceTemp4.ProductId = 7;
-            invoiceTemp1.ProductQuantity = 3;
-            invoiceTemp1.ProductPrice = 5;
+            invoiceTemp4.ProductQuantity = 3;
+            invoiceTemp4.ProductPrice = 5;
             invoiceTemp4.CustomerId = 13;
             invoiceTemp4.SellerId = 1;
             invoiceTemp4.RecordDate = DateTime.Now;
 
             invoiceTemp5.InvoiceId = 5;
             invoiceTemp5.ProductId = 3;
-            invoiceTemp1.ProductQuantity = 7;
-            invoiceTemp1.ProductPrice = 12;
+            invoiceTemp5.ProductQuantity = 7;
+            invoiceTemp5.ProductPrice = 12;
             invoiceTemp5.CustomerId = 11;
             invoiceTemp5.SellerId = 1;
             invoiceTemp5.RecordDate = DateTime.Now;
