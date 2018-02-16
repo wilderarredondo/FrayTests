@@ -143,8 +143,8 @@ namespace Fray_c
             ProductList productList = new ProductList();
             List<Product> productMinStockList = new List<Product>();
             List<Invoice> invoiceList = new List<Invoice>();
-            
-            List<Customer> customer55List = new List<Customer>();
+
+            List<Customer> customerOver55YearList = new List<Customer>();
             List<Customer> customerBirthDayList = new List<Customer>();
 
             customerList = CustomerList();
@@ -156,27 +156,27 @@ namespace Fray_c
             sellerTemp.Name = "Carlos Bodger";
 
             float SalesTotal = 0;
-            foreach(var invoice in invoiceList)
+            foreach (var invoice in invoiceList)
             {
-                Customer customer55 = new Customer();
+                Customer customerOver55Year = new Customer();
                 Customer customerBirthDay = new Customer();
                 int customerId = invoice.CustomerId;
 
-                SalesTotal+= invoice.ProductPrice*invoice.ProductQuantity;
+                SalesTotal += invoice.ProductPrice * invoice.ProductQuantity;
 
-                customer55 = customerList.Find(x => x.CustomerId == customerId && x.Age > 55);
+                customerOver55Year = customerList.Find(x => x.CustomerId == customerId && x.Age > 55);
                 customerBirthDay = customerList.Find(x => x.CustomerId == customerId && x.BirthDate.Month == DateTime.Now.Month);
-                
-                if(customer55 != null && !customer55List.Contains(customer55))
-                    customer55List.Add(customer55);
-                
-                if(customerBirthDay != null && !customerBirthDayList.Contains(customerBirthDay))
+
+                if (customerOver55Year != null && !customerOver55YearList.Contains(customerOver55Year))
+                    customerOver55YearList.Add(customerOver55Year);
+
+                if (customerBirthDay != null && !customerBirthDayList.Contains(customerBirthDay))
                     customerBirthDayList.Add(customerBirthDay);
             }
 
-            for(int i=0; i< productList.ProductsList.Count; i++)
+            for (int i=0; i< productList.ProductsList.Count; i++)
             {
-                if(productList.ProductsList[i].Stock <= productList.MinStock)
+                if (productList.ProductsList[i].Stock <= productList.MinStock)
                 {
                     Product productMinStock = new Product();
                     productMinStock = productList.ProductsList[i];
@@ -184,39 +184,27 @@ namespace Fray_c
                 }
             }
 
+            Console.WriteLine($"Total sales: {SalesTotal} \n");
 
-            Console.WriteLine("Total Ventas: " + SalesTotal);
-            Console.WriteLine("");
-
-            Console.WriteLine("Clientes mayores a 55 anios: ");
-            foreach(var customer in customer55List)
+            Console.WriteLine("Clients over 55 years: ");
+            foreach (Customer customer in customerOver55YearList)
             {
-                Console.WriteLine($"Nombres: {customer.Name}, Anios: {customer.Age}");
+                Console.WriteLine($"Names: {customer.Name}, Age: {customer.Age}");
             }
-            
             Console.WriteLine("");
 
-            Console.WriteLine("Clientes que cumplan anios este mes: ");
-            foreach(var customer in customerBirthDayList)
+            Console.WriteLine("Customers who are older this month: ");
+            foreach (Customer customer in customerBirthDayList)
             {
-                Console.WriteLine($"Nombres: {customer.Name}, Anios: {customer.Age}");
+                Console.WriteLine($"Names: {customer.Name}, Age: {customer.Age}");
             }
-            
             Console.WriteLine("");
-            
-            Console.WriteLine("Productos con stock que estan en el minimo o por debajo: ");
-            foreach(var product in productMinStockList)
+
+            Console.WriteLine("Products with stock that are at the minimum or below the stock: ");
+            foreach (Product product in productMinStockList)
             {
-                Console.WriteLine($"Nombres: {product.Name}, Anios: {product.Stock}");
+                Console.WriteLine($"Names: {product.Name}, Age: {product.Stock}");
             }
-            
-            Console.WriteLine("");
-
-            /*Console.WriteLine("Ingresar valor! - ");
-            string a = Console.ReadLine();
-            DateTime year = DateTime.Parse(a);
-
-            Console.WriteLine("Valor ingresado" + year + " - " + a);*/
         }
     }
 }
