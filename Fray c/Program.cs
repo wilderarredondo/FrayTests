@@ -137,6 +137,7 @@ namespace Fray_c
 
             return invoiceList;
         }
+
         static void Main(string[] args)
         {
             List<Customer> customerList = new List<Customer>();
@@ -168,10 +169,14 @@ namespace Fray_c
                 customerBirthDay = customerList.Find(x => x.CustomerId == customerId && x.BirthDate.Month == DateTime.Now.Month);
 
                 if (customerOver55Year != null && !customerOver55YearList.Contains(customerOver55Year))
+                {
                     customerOver55YearList.Add(customerOver55Year);
+                }
 
                 if (customerBirthDay != null && !customerBirthDayList.Contains(customerBirthDay))
+                {
                     customerBirthDayList.Add(customerBirthDay);
+                }
             }
 
             for (int i=0; i< productList.ProductsList.Count; i++)
